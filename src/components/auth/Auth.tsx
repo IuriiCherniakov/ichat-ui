@@ -10,6 +10,8 @@ interface AuthProps {
 const Auth = ({submitButtonLabel, onSubmit, children}: AuthProps) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	console.log(email);
+	console.log(password);
 
 	return (
 		<Stack
@@ -38,10 +40,7 @@ const Auth = ({submitButtonLabel, onSubmit, children}: AuthProps) => {
 				type="password"
 				variant="outlined"
 			/>
-			<Button
-				onClick={() => onSubmit({email, password})}
-				variant="contained"
-			>
+			<Button onClick={() => onSubmit({email, password})} variant="contained">
 				{submitButtonLabel}
 			</Button>
 			{children}

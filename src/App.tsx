@@ -1,28 +1,31 @@
-import React from 'react';
+import {ApolloProvider} from "@apollo/client/react";
 import {
-    Container,
-    createTheme,
-    CssBaseline,
-    ThemeProvider,
-} from '@mui/material';
-import router from './components/Router';
-import { RouterProvider } from 'react-router-dom';
+	Container,
+	createTheme,
+	CssBaseline,
+	ThemeProvider,
+} from "@mui/material";
+import {RouterProvider} from "react-router-dom";
+import router from "./components/Router";
+import client from "./constants/apollo-client";
 
 const darkTheme = createTheme({
-    palette: {
-        mode: 'light',
-    },
+	palette: {
+		mode: "light",
+	},
 });
 
 const App = () => {
-    return (
-        <ThemeProvider theme={darkTheme}>
-            <CssBaseline />
-            <Container>
-                <RouterProvider router={router} />
-            </Container>
-        </ThemeProvider>
-    );
+	return (
+		<ApolloProvider client={client}>
+			<ThemeProvider theme={darkTheme}>
+				<CssBaseline />
+				<Container>
+					<RouterProvider router={router} />
+				</Container>
+			</ThemeProvider>
+		</ApolloProvider>
+	);
 };
 
 export default App;

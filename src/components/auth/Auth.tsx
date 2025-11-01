@@ -10,8 +10,6 @@ interface AuthProps {
 const Auth = ({submitButtonLabel, onSubmit, children}: AuthProps) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	console.log(email);
-	console.log(password);
 
 	return (
 		<Stack

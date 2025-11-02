@@ -5,9 +5,14 @@ import Auth from "./Auth";
 
 const Login = () => {
 	const {login, error} = useLogin();
+	console.log("error", error);
 	return (
 		<>
-			<Auth submitButtonLabel="Login" onSubmit={(request) => login(request)}>
+			<Auth
+				submitButtonLabel="Login"
+				onSubmit={(request) => login(request)}
+				error={error ? "Credentials are not valid" : ""}
+			>
 				<Link to={"/signup"} style={{alignSelf: "center"}}>
 					<MUILink>Signup</MUILink>
 				</Link>

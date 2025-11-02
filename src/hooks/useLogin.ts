@@ -20,6 +20,7 @@ const useLogin = () => {
 		});
 		if (!res.ok) {
 			setError(true);
+			return;
 		}
 		setError(false);
 

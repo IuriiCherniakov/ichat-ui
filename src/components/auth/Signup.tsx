@@ -27,7 +27,9 @@ const Signup = () => {
 					const errorMessage = extractErrorMessage(e);
 					if (errorMessage) {
 						setError(errorMessage);
+						return;
 					}
+					setError("Unknown error occurred.");
 				}
 			}}
 		>

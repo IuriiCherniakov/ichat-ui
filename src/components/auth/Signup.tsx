@@ -2,6 +2,7 @@ import {Link as MUILink} from "@mui/material";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {useCreateUser} from "../../hooks/useCreateUser";
+import {extractErrorMessage} from "../../utils/errors";
 import Auth from "./Auth";
 
 const Signup = () => {
@@ -9,6 +10,7 @@ const Signup = () => {
 	const [error, setError] = useState("");
 	return (
 		<Auth
+			error={error}
 			submitButtonLabel="Signup"
 			onSubmit={async ({email, password}) => {
 				try {
@@ -20,9 +22,12 @@ const Signup = () => {
 							},
 						},
 					});
+					setError("");
 				} catch (e) {
-					console.error(e);
-					throw e;
+					const errorMessage = extractErrorMessage(e);
+					if (errorMessage) {
+						setError(errorMessage);
+					}
 				}
 			}}
 		>

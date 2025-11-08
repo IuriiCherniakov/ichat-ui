@@ -1,6 +1,6 @@
 import SmsIcon from "@mui/icons-material/Sms";
 import Typography from "@mui/material/Typography";
-import router from "../Router";
+import router from "../../Router";
 
 const MobileBranding = () => {
 	return (

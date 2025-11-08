@@ -1,16 +1,22 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { Page } from "../../interfaces/page.interface";
+import router from "../Router";
 
 interface NavigationProps {
-	pages: string[];
+	pages: Page[];
 }
 
 const Navigation = ({ pages }: NavigationProps) => {
 	return (
 		<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
 			{pages.map((page) => (
-				<Button key={page} sx={{ my: 2, color: "white", display: "block" }}>
-					{page}
+				<Button
+					onClick={() => router.navigate(page.path)}
+					key={page.title}
+					sx={{ my: 2, color: "white", display: "block" }}
+				>
+					{page.title}
 				</Button>
 			))}
 		</Box>

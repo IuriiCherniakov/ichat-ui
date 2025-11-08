@@ -1,6 +1,6 @@
-import {useState} from "react";
+import { useState } from "react";
 import client from "../constants/apollo-client";
-import {API_URL} from "../constants/urls";
+import { API_URL } from "../constants/urls";
 
 interface LoginRequest {
 	email: string;
@@ -29,10 +29,10 @@ const useLogin = () => {
 		setError("");
 
 		// refetch cached queries
-		await client.refetchQueries({include: "active"});
+		await client.refetchQueries({ include: "active" });
 	};
 
-	return {login, error};
+	return { login, error };
 };
 
-export {useLogin};
+export { useLogin };

@@ -1,6 +1,6 @@
-import {gql} from "@apollo/client";
-import {useMutation} from "@apollo/client/react";
-import {User} from "../models/User";
+import { gql } from "@apollo/client";
+import { useMutation } from "@apollo/client/react";
+import { User } from "../models/User";
 
 interface CreateUserInput {
 	createUserInput: {
@@ -22,4 +22,4 @@ const useCreateUser = () => {
 	return useMutation<User, CreateUserInput>(CREATE_USER_MUTATION);
 };
 
-export {useCreateUser};
+export { useCreateUser };

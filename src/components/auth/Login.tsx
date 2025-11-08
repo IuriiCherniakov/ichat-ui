@@ -1,10 +1,10 @@
-import {Link as MUILink} from "@mui/material";
-import {Link} from "react-router-dom";
-import {useLogin} from "../../hooks/useLogin";
+import { Link as MUILink } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useLogin } from "../../hooks/useLogin";
 import Auth from "./Auth";
 
 const Login = () => {
-	const {login, error} = useLogin();
+	const { login, error } = useLogin();
 	console.log("error", error);
 	return (
 		<>
@@ -13,7 +13,7 @@ const Login = () => {
 				onSubmit={(request) => login(request)}
 				error={error}
 			>
-				<Link to={"/signup"} style={{alignSelf: "center"}}>
+				<Link to={"/signup"} style={{ alignSelf: "center" }}>
 					<MUILink>Signup</MUILink>
 				</Link>
 			</Auth>

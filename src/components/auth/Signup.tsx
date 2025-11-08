@@ -1,8 +1,8 @@
-import {Link as MUILink} from "@mui/material";
-import {useState} from "react";
-import {Link} from "react-router-dom";
-import {useCreateUser} from "../../hooks/useCreateUser";
-import {extractErrorMessage} from "../../utils/errors";
+import { Link as MUILink } from "@mui/material";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useCreateUser } from "../../hooks/useCreateUser";
+import { extractErrorMessage } from "../../utils/errors";
 import Auth from "./Auth";
 
 const Signup = () => {
@@ -12,7 +12,7 @@ const Signup = () => {
 		<Auth
 			error={error}
 			submitButtonLabel="Signup"
-			onSubmit={async ({email, password}) => {
+			onSubmit={async ({ email, password }) => {
 				try {
 					await createUser({
 						variables: {
@@ -33,7 +33,7 @@ const Signup = () => {
 				}
 			}}
 		>
-			<Link to={"/login"} style={{alignSelf: "center"}}>
+			<Link to={"/login"} style={{ alignSelf: "center" }}>
 				<MUILink>Login</MUILink>
 			</Link>
 		</Auth>

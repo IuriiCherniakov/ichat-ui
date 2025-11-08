@@ -1,14 +1,14 @@
-import {Button, Stack, TextField} from "@mui/material";
-import React, {useState} from "react";
+import { Button, Stack, TextField } from "@mui/material";
+import React, { useState } from "react";
 
 interface AuthProps {
 	submitButtonLabel: string;
-	onSubmit: (credentials: {email: string; password: string}) => Promise<void>;
+	onSubmit: (credentials: { email: string; password: string }) => Promise<void>;
 	children: React.ReactNode;
 	error?: string;
 }
 
-const Auth = ({submitButtonLabel, onSubmit, children, error}: AuthProps) => {
+const Auth = ({ submitButtonLabel, onSubmit, children, error }: AuthProps) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -43,7 +43,7 @@ const Auth = ({submitButtonLabel, onSubmit, children, error}: AuthProps) => {
 				error={!!error}
 				helperText={error}
 			/>
-			<Button onClick={() => onSubmit({email, password})} variant="contained">
+			<Button onClick={() => onSubmit({ email, password })} variant="contained">
 				{submitButtonLabel}
 			</Button>
 			{children}

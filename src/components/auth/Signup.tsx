@@ -2,12 +2,14 @@ import { Link as MUILink } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCreateUser } from "../../hooks/useCreateUser";
+import { useLogin } from "../../hooks/useLogin";
 import { extractErrorMessage } from "../../utils/errors";
 import Auth from "./Auth";
 
 const Signup = () => {
 	const [createUser] = useCreateUser();
 	const [error, setError] = useState("");
+	const { login } = useLogin();
 	return (
 		<Auth
 			error={error}
@@ -22,6 +24,7 @@ const Signup = () => {
 							},
 						},
 					});
+					await login({ email, password });
 					setError("");
 				} catch (e) {
 					const errorMessage = extractErrorMessage(e);

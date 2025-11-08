@@ -6,7 +6,7 @@ interface GuardProps {
 	children: JSX.Element;
 }
 
-export const Guard = ({ children }: GuardProps) => {
+const Guard = ({ children }: GuardProps) => {
 	const { data: user } = useGetMe();
 
 	return (
@@ -17,3 +17,5 @@ export const Guard = ({ children }: GuardProps) => {
 		</>
 	);
 };
+
+export default Guard;

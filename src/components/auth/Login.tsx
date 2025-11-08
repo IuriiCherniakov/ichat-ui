@@ -5,7 +5,6 @@ import Auth from "./Auth";
 
 const Login = () => {
 	const { login, error } = useLogin();
-	console.log("error", error);
 	return (
 		<>
 			<Auth

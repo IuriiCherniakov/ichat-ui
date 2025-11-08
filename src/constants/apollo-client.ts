@@ -1,6 +1,6 @@
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import router from "../components/Router";
+import { onLogout } from "../utils/logout";
 import { excludedRoutes } from "./excludedRoutes";
 import { API_URL } from "./urls";
 
@@ -13,8 +13,7 @@ const logoutLink = onError((err: any) => {
 		(errArray[0].extensions?.originalError as any)?.statusCode === 401 //TODO: resolve typescript problems
 	) {
 		if (!excludedRoutes.includes(window.location.pathname)) {
-			router.navigate("/login");
-			client.clearStore(); // TODO: check why client.resetStore() doesn't work
+			onLogout();
 		}
 	}
 });

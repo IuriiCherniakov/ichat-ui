@@ -1,11 +1,12 @@
-import {ApolloProvider} from "@apollo/client/react";
+import { ApolloProvider } from "@apollo/client/react";
 import {
 	Container,
 	createTheme,
 	CssBaseline,
 	ThemeProvider,
 } from "@mui/material";
-import {RouterProvider} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { Guard } from "./components/auth/Guard";
 import router from "./components/Router";
 import client from "./constants/apollo-client";
 
@@ -21,7 +22,9 @@ const App = () => {
 			<ThemeProvider theme={darkTheme}>
 				<CssBaseline />
 				<Container>
-					<RouterProvider router={router} />
+					<Guard>
+						<RouterProvider router={router} />
+					</Guard>
 				</Container>
 			</ThemeProvider>
 		</ApolloProvider>

@@ -1,6 +1,7 @@
 import { Link as MUILink } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { UNKNOWN_ERROR_MESSAGE } from "../../constants/error";
 import { useCreateUser } from "../../hooks/useCreateUser";
 import { useLogin } from "../../hooks/useLogin";
 import { extractErrorMessage } from "../../utils/errors";
@@ -32,7 +33,7 @@ const Signup = () => {
 						setError(errorMessage);
 						return;
 					}
-					setError("Unknown error occurred.");
+					setError(UNKNOWN_ERROR_MESSAGE);
 				}
 			}}
 		>

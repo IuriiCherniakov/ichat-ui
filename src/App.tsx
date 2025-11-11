@@ -30,7 +30,6 @@ const App = () => {
 					</Guard>
 				</Container>
 				<Snackbar />
-				<Header />
 			</ThemeProvider>
 		</ApolloProvider>
 	);

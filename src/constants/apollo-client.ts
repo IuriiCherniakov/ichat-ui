@@ -6,10 +6,11 @@ import { API_URL } from "./urls";
 
 const httpLink = new HttpLink({ uri: `${API_URL}/graphql` });
 
+// TODO: onError is deprecated, update the err type
 const logoutLink = onError((err: any) => {
-	const errArray = err.error.errors;
+	const errArray = err?.error?.errors;
 	if (
-		errArray.length &&
+		errArray?.length &&
 		(errArray[0].extensions?.originalError as any)?.statusCode === 401 //TODO: resolve typescript problems
 	) {
 		if (!excludedRoutes.includes(window.location.pathname)) {

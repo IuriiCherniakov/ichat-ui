@@ -13,8 +13,11 @@ const GET_ME = gql`
 
 interface GetMeQuery {
 	me: User;
+	error: any;
 }
 
 export const useGetMe = () => {
-	return useQuery<GetMeQuery>(GET_ME);
+	const { data, error } = useQuery<GetMeQuery>(GET_ME);
+	console.log("#####", error, data);
+	return { data, error };
 };

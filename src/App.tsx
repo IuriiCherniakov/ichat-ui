@@ -13,6 +13,7 @@ import Header from "./components/header/Header";
 import router from "./components/Router";
 import Snackbar from "./components/snackbar/Snackbar";
 import client from "./constants/apollo-client";
+import { usePath } from "./hooks/usePath";
 
 const darkTheme = createTheme({
 	palette: {
@@ -21,26 +22,37 @@ const darkTheme = createTheme({
 });
 
 const App = () => {
+	const { path } = usePath();
 	return (
 		<ApolloProvider client={client}>
 			<ThemeProvider theme={darkTheme}>
 				<CssBaseline />
 				<Header />
-				<Grid container>
-					<Grid>
-						<ChatList />
-					</Grid>
-					{/*<Grid>*/}
-					<Container>
-						<Guard>
-							<RouterProvider router={router} />
-						</Guard>
-					</Container>
-					{/*</Grid>*/}
-				</Grid>
+				<Guard>
+					{path === "/" ? (
+						<Grid container>
+							<Grid>
+								<ChatList />
+							</Grid>
+							{/*<Grid>*/}
+							<Routes />
+							{/*</Grid>*/}
+						</Grid>
+					) : (
+						<Routes />
+					)}
+				</Guard>
 				<Snackbar />
 			</ThemeProvider>
 		</ApolloProvider>
+	);
+};
+
+const Routes = () => {
+	return (
+		<Container>
+			<RouterProvider router={router} />
+		</Container>
 	);
 };
 

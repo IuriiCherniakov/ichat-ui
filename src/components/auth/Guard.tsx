@@ -16,6 +16,15 @@ const Guard = ({ children }: GuardProps) => {
 		}
 	}, [user]);
 
+	// useEffect(() => {
+	// 	// TODO: any
+	//
+	// 	console.log("ERROR from GUARD", { error });
+	// 	// if ((error as any).networkError) {
+	// 	// 	snackVar(UNKNOWN_ERROR_SNACK_MESSAGE);
+	// 	// }
+	// }, [error]);
+
 	return (
 		<>
 			{excludedRoutes.includes(window.location.pathname)

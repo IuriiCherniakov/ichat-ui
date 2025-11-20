@@ -3,10 +3,12 @@ import {
 	Container,
 	createTheme,
 	CssBaseline,
+	Grid,
 	ThemeProvider,
 } from "@mui/material";
 import { RouterProvider } from "react-router-dom";
 import Guard from "./components/auth/Guard";
+import ChatList from "./components/chat-list/ChatList";
 import Header from "./components/header/Header";
 import router from "./components/Router";
 import Snackbar from "./components/snackbar/Snackbar";
@@ -24,11 +26,18 @@ const App = () => {
 			<ThemeProvider theme={darkTheme}>
 				<CssBaseline />
 				<Header />
-				<Container>
-					<Guard>
-						<RouterProvider router={router} />
-					</Guard>
-				</Container>
+				<Grid container>
+					<Grid>
+						<ChatList />
+					</Grid>
+					{/*<Grid>*/}
+					<Container>
+						<Guard>
+							<RouterProvider router={router} />
+						</Guard>
+					</Container>
+					{/*</Grid>*/}
+				</Grid>
 				<Snackbar />
 			</ThemeProvider>
 		</ApolloProvider>

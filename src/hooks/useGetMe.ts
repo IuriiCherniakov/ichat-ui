@@ -18,6 +18,5 @@ interface GetMeQuery {
 
 export const useGetMe = () => {
 	const { data, error } = useQuery<GetMeQuery>(GET_ME);
-	console.log("#####", error, data);
 	return { data, error };
 };

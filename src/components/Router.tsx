@@ -5,16 +5,16 @@ import { Home } from "./home/Home";
 
 const router = createBrowserRouter([
 	{
-		path: "/",
-		element: <Home />,
-	},
-	{
-		path: "login",
+		path: "/login",
 		element: <Login />,
 	},
 	{
-		path: "signup",
+		path: "/signup",
 		element: <Signup />,
+	},
+	{
+		path: "/",
+		element: <Home />,
 	},
 ]);
 

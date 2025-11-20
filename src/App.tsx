@@ -21,6 +21,7 @@ const darkTheme = createTheme({
 	},
 });
 
+// TODO: LOGOUT is broken (rerenders and overrides the path)
 const App = () => {
 	const { path } = usePath();
 	return (
@@ -31,12 +32,10 @@ const App = () => {
 				<Guard>
 					{path === "/" ? (
 						<Grid container>
-							<Grid>
-								<ChatList />
+							<ChatList />
+							<Grid size={5}>
+								<Routes />
 							</Grid>
-							{/*<Grid>*/}
-							<Routes />
-							{/*</Grid>*/}
 						</Grid>
 					) : (
 						<Routes />

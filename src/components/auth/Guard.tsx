@@ -2,6 +2,7 @@ import { JSX, useEffect } from "react";
 import { authenticatedVar } from "../../constants/authenticated";
 import { excludedRoutes } from "../../constants/excludedRoutes";
 import { useGetMe } from "../../hooks/useGetMe";
+import { usePath } from "../../hooks/usePath";
 
 interface GuardProps {
 	children: JSX.Element;
@@ -9,6 +10,7 @@ interface GuardProps {
 
 const Guard = ({ children }: GuardProps) => {
 	const { data: user } = useGetMe();
+	const { path } = usePath();
 
 	useEffect(() => {
 		if (user) {
@@ -25,13 +27,7 @@ const Guard = ({ children }: GuardProps) => {
 	// 	// }
 	// }, [error]);
 
-	return (
-		<>
-			{excludedRoutes.includes(window.location.pathname)
-				? children
-				: user && children}
-		</>
-	);
+	return <>{excludedRoutes.includes(path) ? children : user && children}</>;
 };
 
 export default Guard;
